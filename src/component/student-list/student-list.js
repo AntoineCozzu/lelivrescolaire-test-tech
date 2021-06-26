@@ -4,7 +4,7 @@ import { getStudents } from "../../api/students-api";
 export function StudentList() {
     const [students, setStudents] = useState(null);
     useEffect(() => {
-        getStudents().then(studentData => { console.log('Students', studentData); setStudents(studentData) });
+        getStudents().then(studentData =>  setStudents(studentData) );
     }, []);
     
     return(
