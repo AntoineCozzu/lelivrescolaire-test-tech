@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react"
-import { getStudents } from "../../api/students-api"
+import { StudentList } from "../../component/student-list/student-list"
 
 export function Students() {
-    const [students, setStudents] = useState(null);
-    useEffect(() => {});
-    getStudents()
-    return(<div>Hello</div>)
+
+    return(<div><StudentList></StudentList></div>)
 }
