@@ -7,6 +7,7 @@ export function Students() {
     return (
         <Fragment>
             <Header></Header>
+            <h2>Liste des élèves</h2>
             <StudentList></StudentList>
         </Fragment>
     )
