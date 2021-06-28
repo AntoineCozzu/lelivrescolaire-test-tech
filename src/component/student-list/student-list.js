@@ -44,12 +44,14 @@ export function StudentList() {
             <ul>
                 {students?.map((student) => <li key={student.id} onClick={() => selectStudent(student)}>{student.firstname} </li>)}
             </ul>
-            <StudentModal
-                student={currentStudent}
-                onClose={closeStudentModal}
-                onDeleteStudent={(id) => deleteStudent(id)}
-                onEditStudent={ (student) => editStudent(student)}>
+            {currentStudent &&
+                <StudentModal
+                    student={currentStudent}
+                    onClose={closeStudentModal}
+                    onDeleteStudent={(id) => deleteStudent(id)}
+                    onEditStudent={(student) => editStudent(student)}>
 
-            </StudentModal>
+                </StudentModal>
+            }
         </div>)
 }
