@@ -10,3 +10,8 @@
 .ReactModal__Overlay--before-close{
     opacity: 0;
 }
+
+.student-img {
+    height: 60%;
+    width: auto;
+}
