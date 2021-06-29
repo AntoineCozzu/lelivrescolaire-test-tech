@@ -1,17 +1,73 @@
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.modal-header h2 {
+    text-align: center;
+}
+
+.modal-header button {
+    position: absolute;
+    left: 2vh;
+    top: 2vh;
+    padding: 8px;
+    width: 30px;
+    height: 30px;
+}
+
+.student-img {
+    width: 300px;
+}
+
+.student-info-text {
+    font-weight: 500;
+}
+
+.student-detail-section {
+    margin-bottom: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+}
+
+.button-container button {
+    min-width: 100px;
+}
+
 .ReactModal__Overlay {
     opacity: 0;
     transition: opacity 300ms ease-in-out;
 }
 
-.ReactModal__Overlay--after-open{
+.ReactModal__Overlay--after-open {
     opacity: 1;
 }
 
-.ReactModal__Overlay--before-close{
+.ReactModal__Overlay--before-close {
     opacity: 0;
 }
 
-.student-img {
-    height: 60%;
-    width: auto;
+@media only screen and (max-width: 767px) {
+    .student-img {
+        width: 200px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.2em;
+        margin-top: 25px;
+    }
+
+    .ReactModal__Content {
+        inset: 30px !important;
+    }
 }
+

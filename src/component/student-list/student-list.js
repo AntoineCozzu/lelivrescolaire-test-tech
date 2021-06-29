@@ -33,7 +33,7 @@ export function StudentList() {
                 const newStudentArray = [...students];
                 newStudentArray.splice(index, 1, updatedStudent);
                 setStudents(newStudentArray);
-                closeStudentModal();
+                selectStudent(updatedStudent);
             }
         )
 

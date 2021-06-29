@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Formik } from "formik";
 import { DatePickerField } from "../shared/datepicker/datepicker-field";
+import './student-form.css';
 
 export function StudentForm(props) {
     const student = props.student;
@@ -33,16 +34,30 @@ export function StudentForm(props) {
                     /* and other goodies */
                 }) => (
                     <form className="student-form" onSubmit={handleSubmit}>
+                        <div className="student-form-fields">
+                        <div className="student-form-field">
+                            <label>
+                                Prénom
+                            </label>
+                            <input name="firstname" value={values.firstname}
+                                label="Prénom" type="text" onChange={handleChange} />
+                        </div>
 
-                        <input name="firstname" value={values.firstname}
-                            label="Prénom" type="text" onChange={handleChange} />
+                        <div className="student-form-field">
+                            <label>
+                                Nom de famille
+                            </label>
+                            <input name="lastname" value={values.lastname}
+                                label="Nom de famille" type="text" onChange={handleChange} />
+                        </div>
+                        <div className="student-form-field">
+                            <label>Date de naissance</label>
+                            <DatePickerField name="birthdate" selected={values.birthdate} onChange={setFieldValue} />
+                        </div>
+                        </div>
+                        
 
-                        <input name="lastname" value={values.lastname}
-                            label="Nom de famille" type="text" onChange={handleChange} />
-
-                        <DatePickerField name="birthdate" selected={values.birthdate} onChange={setFieldValue} />
-
-                        <input label="Valider" value="Valider" type="submit" />
+                        <input className="themed-button button-padding bg-emphasis" label="Valider" value="Valider" type="submit" />
                     </form>
                 )}
             </Formik>
