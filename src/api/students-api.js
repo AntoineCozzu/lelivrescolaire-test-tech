@@ -9,3 +9,8 @@ export function updateStudent(student) {
     // TODO : Call real api to update a student
     return Promise.resolve(student);
 }
+
+export function deleteStudent(id) {
+     // TODO : Call real api to delete a student
+     return Promise.resolve(id);
+}

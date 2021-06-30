@@ -11,7 +11,7 @@ export function StudentForm(props) {
         newStudent.firstname = values.firstname;
         newStudent.lastname = values.lastname;
         newStudent.birthdate = values.birthdate;
-        props.onEditStudent(newStudent);
+        props.onUpdateStudent(newStudent);
     }
 
     return (

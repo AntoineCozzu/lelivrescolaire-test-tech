@@ -20,8 +20,8 @@ export function StudentModal(props) {
     const student = props.student;
     const [isEditing, setEditing] = useState(false);
 
-    function handleEditStudent(student) {
-        props.onEditStudent(student);
+    function handleUpdateStudent(student) {
+        props.onUpdateStudent(student);
         setEditing(false);
     }
 
@@ -42,7 +42,7 @@ export function StudentModal(props) {
             <div className="student-detail-section">
                 {
                     isEditing ?
-                        <StudentForm student={student} onEditStudent={(student) => handleEditStudent(student)} />
+                        <StudentForm student={student} onUpdateStudent={(student) => handleUpdateStudent(student)} />
                         :
                         <Fragment>
                             <div className="student-info-field">

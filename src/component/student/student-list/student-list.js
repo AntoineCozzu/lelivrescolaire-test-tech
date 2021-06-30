@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getStudents, updateStudent } from "../../../api/students-api";
+import { deleteStudent, getStudents, updateStudent } from "../../../api/students-api";
 import { StudentModal } from "../student-modal/student-modal";
 import { Popover } from 'react-tiny-popover'
 import "./student-list.css";
@@ -24,15 +24,18 @@ export function StudentList() {
         setCurrentStudent(null);
     }
 
-    function deleteStudent(id) {
-        const index = students.findIndex((student) => student.id === id);
-        const newStudentArray = [...students];
-        newStudentArray.splice(index, 1);
-        setStudents(newStudentArray);
-        closeStudentModal();
+    function onDeleteStudent(id) {
+        deleteStudent(id).then(
+            (returnedId) => {
+                const index = students.findIndex((student) => student.id === returnedId);
+                const newStudentArray = [...students];
+                newStudentArray.splice(index, 1);
+                setStudents(newStudentArray);
+                closeStudentModal();
+            })
     }
 
-    function editStudent(student) {
+    function onUpdateStudent(student) {
         updateStudent(student).then(
             (updatedStudent) => {
                 const index = students.findIndex((currentStudent) => updatedStudent.id === currentStudent.id);
@@ -100,8 +103,8 @@ export function StudentList() {
                 <StudentModal
                     student={currentStudent}
                     onClose={closeStudentModal}
-                    onDeleteStudent={(id) => deleteStudent(id)}
-                    onEditStudent={(student) => editStudent(student)}>
+                    onDeleteStudent={(id) => onDeleteStudent(id)}
+                    onUpdateStudent={(student) => onUpdateStudent(student)}>
 
                 </StudentModal>
             }
