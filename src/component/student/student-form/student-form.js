@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Formik } from "formik";
-import { DatePickerField } from "../shared/datepicker/datepicker-field";
+import { DatePickerField } from "../../shared/datepicker/datepicker-field";
 import './student-form.css';
 
 export function StudentForm(props) {

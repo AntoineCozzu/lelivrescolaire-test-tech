@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getStudents, updateStudent } from "../../api/students-api";
-import { StudentModal } from '../student-modal/student-modal';
+import { getStudents, updateStudent } from "../../../api/students-api";
+import { StudentModal } from "../student-modal/student-modal";
 import { Popover } from 'react-tiny-popover'
 import "./student-list.css";
-import { getImgUrl } from "../../utils/img-url-helper";
+import { getImgUrl } from "../../../utils/img-url-helper";
 
 export function StudentList() {
     const [students, setStudents] = useState([]);
@@ -78,7 +78,7 @@ export function StudentList() {
                         isOpen={openPopoverId === student.id}
 
                         positions={['right', 'top']}
-                        content={<img className="img-popover" src={getImgUrl(student.img)} />}
+                        content={<img className="img-popover" src={getImgUrl(student.img)} alt="Photographie de l'élève" />}
                     >
                         <li
                             key={student.id}

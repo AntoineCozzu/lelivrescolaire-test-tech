@@ -6,5 +6,6 @@ export function getStudents() {
 }
 
 export function updateStudent(student) {
+    // TODO : Call real api to update a student
     return Promise.resolve(student);
 }

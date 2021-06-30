@@ -4,7 +4,7 @@ import ReactModal from "react-modal";
 import { StudentForm } from "../student-form/student-form";
 import "./student-modal.css";
 import 'moment/locale/fr';
-import { getImgUrl } from "../../utils/img-url-helper";
+import { getImgUrl } from "../../../utils/img-url-helper";
 
 const modalStyle = {
     content: {

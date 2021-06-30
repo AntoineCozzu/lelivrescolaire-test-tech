@@ -1,4 +1,4 @@
-import { StudentList } from "../../component/student-list/student-list"
+import { StudentList } from "../../component/student/student-list/student-list"
 import { Fragment } from "react"
 import { Header } from "../../component/shared/header/header"
 import "./students.css";
