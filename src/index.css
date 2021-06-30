@@ -33,7 +33,7 @@ button,
   cursor: pointer;
 }
 
-.bg-main {
+.bg-primary {
   background-color: var(--main-color);
 }
 
@@ -58,4 +58,20 @@ button,
 
 .button-padding {
   padding: 9px;
+}
+
+.page-wrapper {
+  padding: 35px;
+
+}
+
+.page-title {
+  margin-top: 0;
+  color: white;
+}
+
+@media only screen and (max-width: 767px) {
+  .page-wrapper {
+    padding: 25px;
+  } 
 }

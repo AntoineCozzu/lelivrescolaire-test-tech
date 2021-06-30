@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import { getStudents, updateStudent } from "../../api/students-api";
 import { StudentModal } from '../student-modal/student-modal';
+import { Popover } from 'react-tiny-popover'
+import "./student-list.css";
+import { getImgUrl } from "../../utils/img-url-helper";
 
 export function StudentList() {
     const [students, setStudents] = useState([]);
     const [currentStudent, setCurrentStudent] = useState(null);
+    const [openPopoverId, setOpenPopoverId] = useState({});
+
     useEffect(() => {
-        getStudents().then(studentData => setStudents(studentData));
+        getStudents().then(studentData => {
+            setStudents(studentData);
+        });
     }, []);
 
     function selectStudent(student) {
@@ -28,7 +35,6 @@ export function StudentList() {
     function editStudent(student) {
         updateStudent(student).then(
             (updatedStudent) => {
-                console.log('Updated student', updatedStudent);
                 const index = students.findIndex((currentStudent) => updatedStudent.id === currentStudent.id);
                 const newStudentArray = [...students];
                 newStudentArray.splice(index, 1, updatedStudent);
@@ -39,10 +45,56 @@ export function StudentList() {
 
     }
 
+    function onHoverStudent(id) {
+        setOpenPopoverId(id)
+    }
+
+    function onHoverLeaveStudent(id) {
+        setOpenPopoverId(null);
+    }
+
+    function sortBy(criteria, order) {
+        const newStudents = [...students];
+        newStudents.sort((a, b) => {
+            if (a[criteria] < b[criteria]) return -1
+            if (a[criteria] > b[criteria]) return 1;
+            return 0
+        });
+        setStudents(newStudents);
+    }
+
     return (
-        <div>
-            <ul>
-                {students?.map((student) => <li key={student.id} onClick={() => selectStudent(student)}>{student.firstname} </li>)}
+        <div className="student-list-container">
+            <div className="student-button-section">
+                <button className="themed-button bg-secondary button-padding" onClick={() => sortBy('lastname')}>Trier par nom</button>
+                <button className="themed-button bg-alternative button-padding" onClick={() => sortBy('firstname')}>Trier par prénom</button>
+            </div>
+
+            <ul className="student-list ">
+
+                {students?.map((student) =>
+                    <Popover
+                        key={student.id}
+                        isOpen={openPopoverId === student.id}
+
+                        positions={['right', 'top']}
+                        content={<img className="img-popover" src={getImgUrl(student.img)} />}
+                    >
+                        <li
+                            key={student.id}
+                            onMouseEnter={() => onHoverStudent(student.id)}
+                            onMouseLeave={() => onHoverLeaveStudent(student.id)}
+                            onClick={() => selectStudent(student)}>
+                            <div className="student-name-info">
+                                {student.firstname} <em>{student.lastname}</em>
+                            </div>
+
+                            <div className="details">
+                                Détails
+                            </div>
+                        </li>
+                    </Popover>
+                )}
             </ul>
             {currentStudent &&
                 <StudentModal

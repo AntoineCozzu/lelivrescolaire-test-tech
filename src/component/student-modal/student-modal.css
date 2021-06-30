@@ -6,6 +6,7 @@
 
 .modal-header h2 {
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .modal-header button {
@@ -27,7 +28,7 @@
 
 .student-detail-section {
     margin-bottom: 10px;
-    width: 80%;
+    min-width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
