@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react';
 import { Students } from './pages/students/students';
 
 function App() {

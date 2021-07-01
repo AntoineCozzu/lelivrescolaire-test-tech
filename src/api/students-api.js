@@ -1,16 +1,16 @@
-import { studentMock } from "../assets/mock/students-mock"
+import { studentMock } from '../assets/mock/students-mock';
 
 export function getStudents() {
-    // TODO : Call real api to get list of students
-    return Promise.resolve(studentMock);
+  // TODO : Call real api to get list of students
+  return Promise.resolve(studentMock);
 }
 
 export function updateStudent(student) {
-    // TODO : Call real api to update a student
-    return Promise.resolve(student);
+  // TODO : Call real api to update a student
+  return Promise.resolve(student);
 }
 
 export function deleteStudent(id) {
-     // TODO : Call real api to delete a student
-     return Promise.resolve(id);
+  // TODO : Call real api to delete a student
+  return Promise.resolve(id);
 }
