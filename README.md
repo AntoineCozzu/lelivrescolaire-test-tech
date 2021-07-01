@@ -29,3 +29,6 @@
 
 * Un warning est présent au lancement de l'application, concernant le module react-helmet (permettant de modifier le header de l'application). N'étant pas encore à l'aise avec l'environnement React, je n'ai pas tenté de le corriger, mais il semble qu'il soit du à l'utilisation de la méthode componentWillMount en strict mode, qui devrait être remplacée dans un hook pour correspondre au fonctionnemnt des dernières versions de React.
 
+* La syntaxe Promise.then() a été choisie, n'ayant pas de nombreuses opérations asynchrones à effectuer. Dans un contexte plus complexe, utiliser async/await eut été une option plus adéquate.
+
+* Concernant les tests, deux exemples ont été écrits, utilisant jest et enzyme pour simuler un rendu du DOM et tester l'affichage de nos données. Un message d'erreur que je n'arrive pas à expliquer est présent malgré le bon déroulement des tests (concerne la méthode act, qui permet de tester des composants avec changement d'état asynchrone).

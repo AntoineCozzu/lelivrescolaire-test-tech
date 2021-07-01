@@ -24,14 +24,9 @@ export function StudentForm(props) {
 
                 {({
                     values,
-                    errors,
-                    touched,
                     handleChange,
-                    handleBlur,
                     handleSubmit,
-                    isSubmitting,
                     setFieldValue
-                    /* and other goodies */
                 }) => (
                     <form className="student-form" onSubmit={handleSubmit}>
                         <div className="student-form-fields">

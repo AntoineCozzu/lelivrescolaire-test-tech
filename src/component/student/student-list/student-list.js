@@ -8,7 +8,7 @@ import { getImgUrl } from "../../../utils/img-url-helper";
 export function StudentList() {
     const [students, setStudents] = useState([]);
     const [currentStudent, setCurrentStudent] = useState(null);
-    const [openPopoverId, setOpenPopoverId] = useState({});
+    const [openPopoverId, setOpenPopoverId] = useState(null);
 
     useEffect(() => {
         getStudents().then(studentData => {
@@ -56,7 +56,7 @@ export function StudentList() {
         setOpenPopoverId(null);
     }
 
-    function sortBy(criteria, order) {
+    function sortBy(criteria) {
         const newStudents = [...students];
         newStudents.sort((a, b) => {
             if (a[criteria] < b[criteria]) return -1
